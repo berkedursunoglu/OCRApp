@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 updateBitmap = cropImage.updateBitmap()
                 val i = Intent(this, TextActivity::class.java)
                 val bStream  =  ByteArrayOutputStream()
-                updateBitmap!!.compress(Bitmap.CompressFormat.PNG, 50, bStream)
+                updateBitmap!!.compress(Bitmap.CompressFormat.PNG, 100, bStream)
                 val byteArray = bStream.toByteArray()
                 i.putExtra("image", byteArray )
                 startActivity(i)
