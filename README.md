@@ -9,13 +9,13 @@
  
  
  
-**OCRApp Anasayfa**
+- **OCRApp Anasayfa**
 
-- ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss1.png)
+![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss1.png)
 
-**Upload butonuna tıklandığında izin isteği**
+- **Upload butonuna tıklandığında izin isteği**
 
-- ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss2.png)
+![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss2.png)
 
 **Kullanıcı izin vermezse tekrar upload butonuna tıkladığında snacbak ile izinin neden gerektiğinin bildirimi**
 
