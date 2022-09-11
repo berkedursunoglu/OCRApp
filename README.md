@@ -1,6 +1,6 @@
 ## OCRAPP
 
- **Kullanılan kütüphaneler; 
+ **Kullanılan kütüphaneler;
  - ML Kit - Text Recognition MLKit   
  - Object Detection and Tracking**
 
