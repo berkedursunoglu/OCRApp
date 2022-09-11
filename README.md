@@ -1,30 +1,30 @@
 #OCRApp
 
-###Açıklama
+##Açıklama
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss1.png?)
 
-###Açıklama
+##Açıklama
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss2.png?)
 
-###Açıklama
+##Açıklama
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss3.png?)
 
-###Açıklama
+##Açıklama
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss4.png?)
 
-###Açıklama
+##Açıklama
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss5.png?)
 
-###Açıklama
+##Açıklama
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss6.png?)
 
-###Açıklama
+##Açıklama
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss7.png?)
 
-###Açıklama
+##Açıklama
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss8.png?)
 
-###Açıklama
+##Açıklama
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss9.png?)
 
 
