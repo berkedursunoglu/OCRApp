@@ -1,16 +1,18 @@
 package com.berkedursunoglu.ocrapp
 
-import android.content.Context
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.berkedursunoglu.ocrapp.databinding.ActivityTextBinding
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
-import com.google.mlkit.vision.text.TextRecognizer
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+
 
 class TextActivity : AppCompatActivity() {
 
@@ -18,18 +20,23 @@ class TextActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBinding = DataBindingUtil.setContentView(this,R.layout.activity_text)
-
-        var uriString = intent.getStringExtra("Uri")
-        var uri:Uri = Uri.parse(uriString)
-        getStringFromPic(uri)
+        var bitmap : Bitmap? =null
+        if (intent.hasExtra("image")){
+            val byteArray = intent.getByteArrayExtra("image")
+            bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray!!.size)
+            dataBinding.cropImageView.setImageBitmap(bitmap)
+            getStringFromPic(bitmap)
+        }
     }
 
-    private fun getStringFromPic(uri: Uri) {
+    private fun getStringFromPic(uri: Bitmap) {
         var recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
         try{
-            var inputImage = InputImage.fromFilePath(this,uri)
+            var inputImage = InputImage.fromBitmap(uri,0)
             var result = recognizer.process(inputImage).addOnSuccessListener {
+                dataBinding.progressBar.visibility = View.GONE
                 dataBinding.textView.text = it.text
+                dataBinding.textView.visibility = View.VISIBLE
             }.addOnFailureListener {
                 Toast.makeText(this,it.localizedMessage,Toast.LENGTH_LONG).show()
             }
