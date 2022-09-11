@@ -10,6 +10,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -51,15 +52,14 @@ class MainActivity : AppCompatActivity() {
                 .enableMultipleObjects().enableClassification().build()
         val objectDet = ObjectDetection.getClient(options)
         objectDet.process(image).addOnSuccessListener {
-            it.forEachIndexed { _, detectedObject ->
+            it.forEachIndexed { index, detectedObject ->
                 val box = detectedObject.boundingBox
-                /*
+
                 Log.d("TAG", "Detected object: $index")
                 Log.d("TAG", " trackingId: ${detectedObject.trackingId}")
                 Log.d("TAG",
                     " boundingBox: (${box.left}, ${box.top}) - (${box.right},${box.bottom})")
 
-                 */
                 val cropImage = CropImage(bitmap, box.left, box.right, box.top, box.bottom)
                 updateBitmap = cropImage.updateBitmap()
                 val i = Intent(this, TextActivity::class.java)
@@ -83,14 +83,11 @@ class MainActivity : AppCompatActivity() {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.READ_EXTERNAL_STORAGE)
             ) {
-                Snackbar.make(view, "Permission needed for galery!", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Give Permission", object :
-                        View.OnClickListener {
-                        override fun onClick(p0: View?) {
-                            requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                                101)
-                        }
-                    }).show()
+                Snackbar.make(view, "You must give permission to scan!", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Give Permission") {
+                        requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                            101)
+                    }.show()
             } else {
                 requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 101)
             }
@@ -107,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray,
     ) {
         if (requestCode == 101) {
-            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 val intent =
                     Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                 startActivityForResult(intent, 102)
