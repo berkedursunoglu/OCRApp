@@ -2,8 +2,8 @@
 
 **Kullanılan Kütüphaneler;**
 
- **- ML Kit - Text Recognition**
- **- ML Kit - Object Detection and Tracking**
+ **- ML Kit  Text Recognition**
+ **- ML Kit  Object Detection and Tracking**
  
  
 -Açıklama
