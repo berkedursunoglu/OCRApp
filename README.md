@@ -13,15 +13,15 @@
 
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss1.png)
 
-- **Upload butonuna tıklandığında izin isteği**
+- **Upload butonuna tıklandığında izin isteği.**
 
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss2.png)
 
-- **Kullanıcı izin vermezse, tekrar upload butonuna tıkladığında snacbak ile izinin neden gerektiğinin bildirimi**
+- **Kullanıcı izin vermezse, tekrar upload butonuna tıkladığında snacbak ile izinin neden gerektiğinin bildirimi.**
 
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss3.png)
 
-- **Snackbardan onay verildiği takdirde izin ekranı**
+- **Snackbardan onay verildiği takdirde izin ekranı.**
 
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss4.png)
 
@@ -29,7 +29,7 @@
 
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss5.png)
 
-- **Fotoğraf seçildikten sonra Detect text butonu aktif oluyor.**
+- **Fotoğraf seçildikten sonra Detect text butonu aktif ediliyor.**
 
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss6.png)
 
