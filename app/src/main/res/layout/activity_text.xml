@@ -5,26 +5,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TextActivity">
+    tools:context=".TextActivity"
+    android:background="#5CFF7E46">
+
+    <TextView
+        android:id="@+id/textview_exp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="@string/detected_text"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/cropImageView"
+        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintStart_toStartOf="@+id/cropImageView"
+        app:layout_constraintTop_toBottomOf="@+id/cropImageView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cropImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_exp" />
 
     <ImageView
         android:id="@+id/cropImageView"
-        android:layout_width="297dp"
-        android:layout_height="221dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/detect_text" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -35,5 +54,6 @@
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="@+id/textView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

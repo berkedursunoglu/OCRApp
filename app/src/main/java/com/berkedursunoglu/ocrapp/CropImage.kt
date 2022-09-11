@@ -1,24 +1,14 @@
 package com.berkedursunoglu.ocrapp
 
-import android.content.ContentValues
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.net.Uri
-import android.os.Environment
-import android.provider.MediaStore
-import android.util.Log
-import java.io.File
-import java.io.File.separator
-import java.io.FileOutputStream
-import java.io.OutputStream
+
 
 class CropImage(var imageBitmap: Bitmap,var x1:Int,var x2:Int,var y1:Int,var y2:Int) {
 
     private lateinit var mutableBitmap:Bitmap
-    var fileName = ""
 
     fun updateBitmap():Bitmap{
         mutableBitmap()

@@ -34,25 +34,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        dataBinding.mainActivity = this
         dataBinding.uploadButton.setOnClickListener {
             permissionReadExternal(it)
         }
-        dataBinding.copyText.setOnClickListener {
+        dataBinding.detectTextButton.setOnClickListener {
             objectDet(bitmap)
 
         }
     }
 
 
-    fun objectDet(uri: Bitmap) {
-        var image = InputImage.fromBitmap(uri,0)
+    fun objectDet(bitmap: Bitmap) {
+        val image = InputImage.fromBitmap(bitmap,0)
         val options =
             ObjectDetectorOptions.Builder().setDetectorMode(ObjectDetectorOptions.SINGLE_IMAGE_MODE)
                 .enableMultipleObjects().enableClassification().build()
         val objectDet = ObjectDetection.getClient(options)
         objectDet.process(image).addOnSuccessListener {
-            it.forEachIndexed { index, detectedObject ->
+            it.forEachIndexed { _, detectedObject ->
                 val box = detectedObject.boundingBox
                 /*
                 Log.d("TAG", "Detected object: $index")
@@ -61,10 +60,10 @@ class MainActivity : AppCompatActivity() {
                     " boundingBox: (${box.left}, ${box.top}) - (${box.right},${box.bottom})")
 
                  */
-                val cropImage = CropImage(uri, box.left, box.right, box.top, box.bottom)
+                val cropImage = CropImage(bitmap, box.left, box.right, box.top, box.bottom)
                 updateBitmap = cropImage.updateBitmap()
-                var i = Intent(this, TextActivity::class.java)
-                var bStream  =  ByteArrayOutputStream()
+                val i = Intent(this, TextActivity::class.java)
+                val bStream  =  ByteArrayOutputStream()
                 updateBitmap!!.compress(Bitmap.CompressFormat.PNG, 50, bStream)
                 val byteArray = bStream.toByteArray()
                 i.putExtra("image", byteArray )
@@ -117,12 +116,13 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 102 && resultCode == Activity.RESULT_OK && data != null) {
             uriImage = data.data
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
-                    var imageDecoder: ImageDecoder.Source =
+                    val imageDecoder: ImageDecoder.Source =
                         ImageDecoder.createSource(this@MainActivity.contentResolver, uriImage!!)
                     bitmap = ImageDecoder.decodeBitmap(imageDecoder)
                     dataBinding.imageView.setImageBitmap(bitmap)
@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity() {
                     dataBinding.imageView.setImageBitmap(bitmap)
                 }
 
-                dataBinding.copyText.visibility = View.VISIBLE
+                dataBinding.detectTextButton.visibility = View.VISIBLE
             } catch (e: Exception) {
                 Toast.makeText(this@MainActivity, e.localizedMessage, Toast.LENGTH_LONG).show()
             }

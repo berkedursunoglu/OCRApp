@@ -3,7 +3,6 @@ package com.berkedursunoglu.ocrapp
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -29,11 +28,11 @@ class TextActivity : AppCompatActivity() {
         }
     }
 
-    private fun getStringFromPic(uri: Bitmap) {
-        var recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
+    private fun getStringFromPic(bitmap: Bitmap) {
+        val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
         try{
-            var inputImage = InputImage.fromBitmap(uri,0)
-            var result = recognizer.process(inputImage).addOnSuccessListener {
+            val inputImage = InputImage.fromBitmap(bitmap,0)
+            recognizer.process(inputImage).addOnSuccessListener {
                 dataBinding.progressBar.visibility = View.GONE
                 dataBinding.textView.text = it.text
                 dataBinding.textView.visibility = View.VISIBLE
