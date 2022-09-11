@@ -17,7 +17,7 @@
 
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss2.png)
 
-- **Kullanıcı izin vermezse tekrar upload butonuna tıkladığında snacbak ile izinin neden gerektiğinin bildirimi**
+- **Kullanıcı izin vermezse, tekrar upload butonuna tıkladığında snacbak ile izinin neden gerektiğinin bildirimi**
 
 ![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss3.png)
 
@@ -35,7 +35,7 @@
 
 - **Detect Text butonu ile bir sonraki aktiviteye geçip tespit edilen kutudan çekilen textin ekrana yazdırılması.**
 
-![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss8.png)
+![image](https://github.com/berkedursunoglu/OCRApp/blob/master/ocrapp/ss7.png)
 
 - **Farklı bir görsel ile programın teyiti.**
 
